@@ -37,6 +37,26 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
+// All Images Updated
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+let ctaimg = document.querySelector('#cta-img');
+ctaimg.setAttribute('src', siteContent['cta']['img-src']);
+
+let middleimg = document.querySelector('#middle-img');
+middleimg.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+// Nav Bar
+let navcont = Object.getOwnPropertyNames(siteContent.nav);
+let navlist = navcont.filter(obj => !obj.includes('img'));
+console.log(navcont);
+console.log(navlist);
+let navbar = Array.from(document.querySelectorAll('nav a'));
+for(let i = 0; i < navbar.length; i++){
+  navbar[i].textContent = siteContent.nav[navlist[i]];
+}
+
+// Header Content
+document.querySelector('.cta h1').textContent = siteContent.cta.h1;
+document.querySelector('.cta button').textContent = siteContent.cta.button;

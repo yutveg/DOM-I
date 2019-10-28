@@ -57,6 +57,19 @@ for(let i = 0; i < navbar.length; i++){
   navbar[i].textContent = siteContent.nav[navlist[i]];
 }
 
+let newContent1 = document.createElement("a");
+newContent1.textContent = "FAQ";
+let newContent2 = document.createElement("a");
+newContent2.textContent = "More Links";
+
+document.querySelector('nav').prepend(newContent2);
+document.querySelector('nav').append(newContent1);
+
+document.querySelectorAll('nav a').forEach(a => {
+  a.style.color = "green";
+  a.style.cursor = "pointer";
+})
+
 // Header Content
 document.querySelector('.cta h1').textContent = siteContent.cta.h1;
 document.querySelector('.cta button').textContent = siteContent.cta.button;
@@ -78,3 +91,17 @@ let contblocksp = Array.from(document.querySelectorAll('.text-content p'));
 for(let i = 0; i < contblocksp.length; i++){
   contblocksp[i].textContent = siteContent['main-content'][plist[i]];
 }
+
+// Contact Section
+document.querySelector('.contact h4').textContent = siteContent.contact["contact-h4"];
+let firstp = document.querySelector('.contact p');
+firstp.textContent = siteContent.contact.address;
+
+let secondp = document.querySelector('.contact p:nth-of-type(2)');
+secondp.textContent = siteContent.contact.phone;
+
+let lastp = document.querySelector('.contact p:last-child');
+lastp.textContent = siteContent.contact.email;
+
+// Footer
+document.querySelector('footer p').textContent = siteContent.footer.copyright; 

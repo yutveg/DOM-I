@@ -60,3 +60,21 @@ for(let i = 0; i < navbar.length; i++){
 // Header Content
 document.querySelector('.cta h1').textContent = siteContent.cta.h1;
 document.querySelector('.cta button').textContent = siteContent.cta.button;
+
+// Main Content
+let maincont = Object.getOwnPropertyNames(siteContent['main-content']);
+console.log(maincont);
+let hlist = maincont.filter(obj => obj.includes('h4'));
+let plist = maincont.filter(obj => obj.includes('content'));
+console.log(hlist);
+console.log(plist);
+
+let contblocksh = Array.from(document.querySelectorAll('.text-content h4'));
+for(let i = 0; i < contblocksh.length; i++){
+  contblocksh[i].textContent = siteContent['main-content'][hlist[i]];
+}
+
+let contblocksp = Array.from(document.querySelectorAll('.text-content p'));
+for(let i = 0; i < contblocksp.length; i++){
+  contblocksp[i].textContent = siteContent['main-content'][plist[i]];
+}
